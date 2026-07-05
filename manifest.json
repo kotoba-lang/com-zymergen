@@ -1,0 +1,774 @@
+{
+  "schemaVersion": "1.0",
+  "handle": "zymergen-compat",
+  "did": "did:web:etzhayyim.com:actor:zymergen-compat",
+  "kind": "compat",
+  "title": "zymergen clean-room actor",
+  "description": "Clean-room, API-compatible synthetic biology / DNA actor (zymergen); runs browser-local on IPFS + kotoba-WASM.",
+  "wasmCid": "bafkreicyb6ewgfev42bex64y2znmqkl4cwejnesmbdfkndfsrbvv4vkko4",
+  "wasmProvenance": "built-rust-raw",
+  "runtime": "kotoba-wasm",
+  "exec": "browser-local|donated-mesh",
+  "ipfs": "ipfs://bafkreicyb6ewgfev42bex64y2znmqkl4cwejnesmbdfkndfsrbvv4vkko4",
+  "schema": "schema/zymergen.kotoba",
+  "tier": "L4",
+  "verified": null,
+  "entities": [
+    "Strain",
+    "Construct",
+    "Sequence",
+    "Assay",
+    "Sample",
+    "Workflow"
+  ],
+  "adr": [
+    "260607",
+    "2606014500",
+    "2606013800",
+    "2606036000"
+  ],
+  "capabilities": {
+    "api": {
+      "type": "rest",
+      "runtime": "kotoba-wasm",
+      "endpointCount": 30,
+      "routes": [
+        {
+          "method": "POST",
+          "path": "/v1/strains",
+          "op": "create Strain"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/strains",
+          "op": "list Strain"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/strains/{id}",
+          "op": "get Strain"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/strains/{id}",
+          "op": "update Strain"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/strains/{id}",
+          "op": "delete Strain"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/constructs",
+          "op": "create Construct"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/constructs",
+          "op": "list Construct"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/constructs/{id}",
+          "op": "get Construct"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/constructs/{id}",
+          "op": "update Construct"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/constructs/{id}",
+          "op": "delete Construct"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/sequences",
+          "op": "create Sequence"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/sequences",
+          "op": "list Sequence"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/sequences/{id}",
+          "op": "get Sequence"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/sequences/{id}",
+          "op": "update Sequence"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/sequences/{id}",
+          "op": "delete Sequence"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/assays",
+          "op": "create Assay"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/assays",
+          "op": "list Assay"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/assays/{id}",
+          "op": "get Assay"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/assays/{id}",
+          "op": "update Assay"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/assays/{id}",
+          "op": "delete Assay"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/samples",
+          "op": "create Sample"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/samples",
+          "op": "list Sample"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/samples/{id}",
+          "op": "get Sample"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/samples/{id}",
+          "op": "update Sample"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/samples/{id}",
+          "op": "delete Sample"
+        },
+        {
+          "method": "POST",
+          "path": "/v1/workflows",
+          "op": "create Workflow"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/workflows",
+          "op": "list Workflow"
+        },
+        {
+          "method": "GET",
+          "path": "/v1/workflows/{id}",
+          "op": "get Workflow"
+        },
+        {
+          "method": "PATCH",
+          "path": "/v1/workflows/{id}",
+          "op": "update Workflow"
+        },
+        {
+          "method": "DELETE",
+          "path": "/v1/workflows/{id}",
+          "op": "delete Workflow"
+        }
+      ],
+      "features": {
+        "pagination": true,
+        "filtering": true,
+        "relationExpansion": true,
+        "strictValidation": true,
+        "contractTest": true
+      },
+      "health": "/healthz"
+    },
+    "supplychain": {
+      "type": "cyclonedx-sbom",
+      "runtime": "kotoba-wasm",
+      "sbom": "manifest:supplychain.sbom",
+      "sbomData": {
+        "bomFormat": "CycloneDX",
+        "specVersion": "1.5",
+        "metadata": {
+          "component": {
+            "type": "application",
+            "name": "zymergen-compat",
+            "purl": "pkg:etzhayyim/zymergen-compat"
+          }
+        },
+        "components": [
+          {
+            "type": "library",
+            "name": "kotoba",
+            "scope": "required",
+            "purl": "pkg:etzhayyim/kotoba"
+          },
+          {
+            "type": "library",
+            "name": "kotodama-wasm",
+            "scope": "required",
+            "purl": "pkg:etzhayyim/kotodama-wasm"
+          },
+          {
+            "type": "library",
+            "name": "datomic-client",
+            "scope": "required",
+            "purl": "pkg:etzhayyim/datomic-client"
+          }
+        ]
+      },
+      "adr": [
+        "2606036000"
+      ]
+    },
+    "socialpost": {
+      "type": "datom-event-feed",
+      "runtime": "kotoba-wasm",
+      "lexicon": "app.bsky.feed.post",
+      "source": "zymergen.* Datom events",
+      "mode": "dry-run",
+      "gate": "G8"
+    },
+    "mcp": {
+      "type": "model-context-protocol",
+      "runtime": "kotoba-wasm",
+      "transport": "ipfs+kotoba-wasm",
+      "toolCount": 30,
+      "tools": [
+        {
+          "name": "create_strain",
+          "description": "Create a Strain.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "organism": {
+                "type": "string"
+              },
+              "genotype": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "organism"
+            ]
+          }
+        },
+        {
+          "name": "list_strains",
+          "description": "List Strains.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "get_strain",
+          "description": "Get a Strain by id.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "update_strain",
+          "description": "Update a Strain.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "organism": {
+                "type": "string"
+              },
+              "genotype": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "delete_strain",
+          "description": "Delete a Strain.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "create_construct",
+          "description": "Create a Construct.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "vector": {
+                "type": "string"
+              },
+              "insertRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "vector"
+            ]
+          }
+        },
+        {
+          "name": "list_constructs",
+          "description": "List Constructs.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "get_construct",
+          "description": "Get a Construct by id.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "update_construct",
+          "description": "Update a Construct.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "vector": {
+                "type": "string"
+              },
+              "insertRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "delete_construct",
+          "description": "Delete a Construct.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "create_sequence",
+          "description": "Create a Sequence.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "constructId": {
+                "type": "string"
+              },
+              "length": {
+                "type": "integer"
+              },
+              "checksum": {
+                "type": "string"
+              },
+              "dataRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "length",
+              "checksum"
+            ]
+          }
+        },
+        {
+          "name": "list_sequences",
+          "description": "List Sequences.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "get_sequence",
+          "description": "Get a Sequence by id.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "update_sequence",
+          "description": "Update a Sequence.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "constructId": {
+                "type": "string"
+              },
+              "length": {
+                "type": "integer"
+              },
+              "checksum": {
+                "type": "string"
+              },
+              "dataRef": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "delete_sequence",
+          "description": "Delete a Sequence.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "create_assay",
+          "description": "Create a Assay.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "strainId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "readout": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "type",
+              "readout"
+            ]
+          }
+        },
+        {
+          "name": "list_assays",
+          "description": "List Assays.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "get_assay",
+          "description": "Get a Assay by id.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "update_assay",
+          "description": "Update a Assay.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "strainId": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "readout": {
+                "type": "string"
+              },
+              "value": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "delete_assay",
+          "description": "Delete a Assay.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "create_sample",
+          "description": "Create a Sample.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "strainId": {
+                "type": "string"
+              },
+              "barcode": {
+                "type": "string"
+              },
+              "volumeUl": {
+                "type": "number"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "barcode",
+              "volumeUl"
+            ]
+          }
+        },
+        {
+          "name": "list_samples",
+          "description": "List Samples.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "get_sample",
+          "description": "Get a Sample by id.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "update_sample",
+          "description": "Update a Sample.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "strainId": {
+                "type": "string"
+              },
+              "barcode": {
+                "type": "string"
+              },
+              "volumeUl": {
+                "type": "number"
+              },
+              "location": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "delete_sample",
+          "description": "Delete a Sample.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "create_workflow",
+          "description": "Create a Workflow.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "protocolRef": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "status"
+            ]
+          }
+        },
+        {
+          "name": "list_workflows",
+          "description": "List Workflows.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        {
+          "name": "get_workflow",
+          "description": "Get a Workflow by id.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "update_workflow",
+          "description": "Update a Workflow.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "protocolRef": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        },
+        {
+          "name": "delete_workflow",
+          "description": "Delete a Workflow.",
+          "inputSchema": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}
