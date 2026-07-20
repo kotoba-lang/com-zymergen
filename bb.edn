@@ -1,6 +1,0 @@
-{:paths ["src" "test"]
- :tasks {test {:doc "Run the cljc contract + behavioral test under babashka"
-               :extra-paths ["test"]
-               :requires ([zymergen.main-test])
-               :task (let [{:keys [fail error]} (clojure.test/run-tests 'zymergen.main-test)]
-                       (System/exit (if (pos? (+ fail error)) 1 0)))}}}
