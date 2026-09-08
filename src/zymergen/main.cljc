@@ -12,7 +12,7 @@
   State lives on the kotoba Datom log: `emit-facts` produces namespaced EAVT
   facts (`zymergen.<Entity>/<field>`); `*store*` is the in-memory materialization
   used by the contract test and by the WASM runtime before a live engine binds."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def ns-prefix "zymergen")
 (def tier "L4")
@@ -76,7 +76,7 @@
         :else 0.0))
 
 (defn as-bool [v]
-  (if (nil? v) false (contains? #{"1" "true" "yes" "on" true} (if (string? v) (str/lower-case v) v))))
+  (if (nil? v) false (contains? #{"1" "true" "yes" "on" true} (if (string? v) (str/lower v) v))))
 
 (defn coerce-field [kind v]
   (case kind :int (as-int v) :float (as-float v) :bool (as-bool v) v))
